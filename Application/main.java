@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
@@ -25,51 +24,66 @@ public class main {
                     int hnum = input.nextInt();
                     int fnum = input.nextInt();
                     int anum = input.nextInt();
-                    account.createHome(hnum, fnum, anum);
-
+                    account.createHome(hnum,fnum, anum);
                 }
                 case 2 -> {
                     System.out.println("Введите номер дома, этажа и квартиры");
                     int nh = input.nextInt();
                     int nf = input.nextInt();
                     int na = input.nextInt();
-                    System.out.println("Введите площадь квартиры, кол-во жильцов и комнат");
-                    int s = input.nextInt();
-                    int p = input.nextInt();
-                    int r = input.nextInt();
-                     account.createApart(nh,nf,na,s,p,r);
+                    if (account.homes.containsValue(nh)) {
+                        System.out.println("Введите площадь квартиры, кол-во жильцов и комнат");
+                        int s = input.nextInt();
+                        int p = input.nextInt();
+                        int r = input.nextInt();
+                        account.createApart(nh, nf, na, s, p, r);
+                    }
+                    else System.out.println("Нет дома с таким номером.");
                 }
-
                     case 3 -> {
                     System.out.println("Введите номер дома");
                     int n1 = input.nextInt();
-                    System.out.println("Введите номер дома");
-                    int n2 = input.nextInt();
-                    account.compareHome(n1, n2);
-                }
+                    if (account.homes.containsValue(n1)) {
+                        System.out.println("Введите номер дома");
+                        int n2 = input.nextInt();
+                        if (account.homes.containsValue(n2))
+                            account.compareHome(n1, n2);
+                        else System.out.println("Нет дома с таким номером.");
+                    }
+                    else System.out.println("Нет дома с таким номером.");
+
+                    }
                 case 4 -> {
                     System.out.println("Введите номер дома, этажа и квартиры");
                     int n1 = input.nextInt();
                     int nf1 = input.nextInt();
                     int na1 = input.nextInt();
-                    System.out.println("Введите номер дома, этажа и квартиры");
-                    int n2 = input.nextInt();
-                    int nf2 = input.nextInt();
-                    int na2 = input.nextInt();
-                    account.compareApart(n1, nf1,na1,n2,nf2,na2);
-                }
+                    if (account.homes.containsValue(n1)) {
+                        System.out.println("Введите номер дома, этажа и квартиры");
+                        int n2 = input.nextInt();
+                        int nf2 = input.nextInt();
+                        int na2 = input.nextInt();
+                        if (account.homes.containsValue(n2))
+                            account.compareApart(n1, nf1, na1, n2, nf2, na2);
+                        else System.out.println("Нет дома с таким номером.");
+                    }
+                        else System.out.println("Нет дома с таким номером.");
+                    }
                 case 5 -> {
                     System.out.println("Введите номер дома, этажа и квартиры");
                     int nh = input.nextInt();
                     int nf = input.nextInt();
                     int na = input.nextInt();
-                    Apart apartment =account.homes[nh].floors[nf].aparts[na];
-                    apartment.Info();
+                    if (account.homes.containsValue(nh))
+                        account.homes.get(nh).floors.get(nf).aparts.get(na).Info();
+                    else System.out.println("Нет дома с таким номером.");
                 }
                 case 6 -> {
                     System.out.println("Введите номер дома");
                     int n = input.nextInt();
-                    account.homes[n].Info();
+                    if (account.homes.containsValue(n))
+                        account.homes.get(n).Info();
+                    else System.out.println("Нет дома с таким номером.");
                 }
             }
         }
