@@ -1,7 +1,7 @@
 public class Apart {
-    double sqr;
-    int people;
-    int rooms;
+    private double sqr;
+    private int people;
+    private int rooms;
     public void Apart(){
         this.sqr=0;
         this.people=0;
