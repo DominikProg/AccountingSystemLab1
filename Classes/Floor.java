@@ -1,11 +1,11 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class Floor {
     private int apartcount;
     private double sqr;
     private int people;
     private int rooms;
-    ArrayList<Apart> aparts=new ArrayList<>();
+    List<Apart> aparts=new ArrayList<>();
     public Floor (int anum){
         this.apartcount=anum;
         for (int i=0; i<=anum; i++){

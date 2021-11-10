@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.List;
 public class Home {
     private int floortcount;
     private double sqr;
     private int people;
     private int rooms;
-    ArrayList<Floor> floors=new ArrayList<>();
+    List<Floor> floors=new ArrayList<>();
     public Home(int fnum, int anum){
         this.floortcount=fnum;
         for (int i=0; i<=fnum; i++){
