@@ -1,42 +1,39 @@
 import java.util.ArrayList;
 public class Home {
-    int floortcount=10;
-    double hsqr=0;
-    int hpeople=0;
-    int hrooms=0;
-    Floor[] floors=new Floor[floortcount];
+    private int floortcount;
+    private double sqr;
+    private int people;
+    private int rooms;
+    ArrayList<Floor> floors=new ArrayList<>();
     public Home(int fnum, int anum){
         this.floortcount=fnum;
         for (int i=0; i<=fnum; i++){
             Floor floor=new Floor(anum);
-            this.floors[i]=floor;
+            floors.add(floor);
         }
     }
     void createFloor(int fcount){
         floortcount=fcount;
     }
-    double getHsqr(){
-        double S=0;
-        for (int i=0; i<this.floortcount; i++){
-            S+=floors[i].getFsqr();
-        }
-        return S;
+    double getSqr(){
+       return this.sqr;
     }
-    double getHpeople(){
-        double S=0;
-        for (int i=0; i<this.floortcount; i++){
-            S+=floors[i].getFpeople();
-        }
-        return S;
+    int getPeople(){
+     return this.people;
     }
-    double getHrooms(){
-        double S=0;
-        for (int i=0; i<this.floortcount; i++){
-            S+=floors[i].getFrooms();
-        }
-        return S;
+    int getRooms(){
+       return this.rooms;
+    }
+    void setSqr(double sqr){
+        this.sqr=sqr;
+    }
+    void setPeople(int people){
+        this.people=people;
+    }
+    void setRooms(int rooms){
+        this.rooms=rooms;
     }
     void Info(){
-        System.out.println("Площадь: "+getHsqr()+" Кол-во жильцов: "+getHpeople()+" Кол-во комнат: "+getHrooms());
+        System.out.println("Площадь: "+getSqr()+" Кол-во жильцов: "+getPeople()+" Кол-во комнат: "+getRooms());
     }
 }
